@@ -48,11 +48,17 @@ spec:
             - "--ignore-db-dir=lost+found" # Workaround for https://github.com/docker-library/mysql/issues/186
           name: mysql
           env:
-            - name: MYSQL_ROOT_PASSWORD
-              value: password
+            - name: MYSQL_ROOT_PASSWORD # Setting password from a 'Secret' object defined with 'db-secrets' as name
+              valueFrom:
+                secretKeyRef:
+                  name: db-secrets 
+                  key: password
 
-            - name: MYSQL_DATABASE # Setting Database Name from a 'ConfigMap'
-              value: user-db
+            - name: MYSQL_DATABASE # Setting Database Name from a 'ConfigMap' object defined with 'db-config' as name
+              valueFrom:
+                configMapKeyRef:
+                  name: db-config 
+                  key: dbName
 
 
           ports:
@@ -74,7 +80,7 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: mysql  # DNS name
+  name: mysql-server  # DNS name
   labels:
     app: mysql
     tier: database
