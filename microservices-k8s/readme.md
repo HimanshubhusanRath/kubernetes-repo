@@ -1,7 +1,7 @@
 *Spring Boot Microservices Communications in Kubernetes*
 --------------------------------------------------------
 * Caller-service calls the Callee-service using the service name, not the IP address.
-* The name of the service object mentioned in the K8s yaml file is used to access the service. This is the DNS for the callee-service.
+* The name of the service object mentioned in the K8s yaml file is used to access the callee-service using RestTemplate. This is the domain name for the callee-service.
 
 **Note:**
 * Service Discovery : No spring cloud service registry or similar modules are used. Service discovery happens using Kubernetes.
