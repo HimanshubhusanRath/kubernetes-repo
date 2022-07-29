@@ -1,0 +1,42 @@
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: department-service-d
+  namespace: dev  
+spec:
+  selector:
+    matchLabels:
+      app: department-service
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: department-service
+    spec:
+      containers:
+        - name: department-service
+          image: himanshubhusan88/department-service:1.0
+          imagePullPolicy: Always
+#          ports:
+#            - containerPort: 8081
+            
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: department-service-svc
+  namespace: dev
+  labels:
+    app: department-service
+spec:
+  type: ClusterIP
+  selector:
+    app: department-service
+    
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 8080 
+    
