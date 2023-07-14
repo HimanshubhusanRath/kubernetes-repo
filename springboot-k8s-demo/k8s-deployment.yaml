@@ -24,4 +24,4 @@ spec:
           image: himanshubhusan88/springboot-k8s-demo:1.0
           imagePullPolicy: IfNotPresent
           ports:
-            - containerPort: 8080 # Port which the container is running in the cluster
+            - containerPort: 8080 # Port which the container is running in the POD
