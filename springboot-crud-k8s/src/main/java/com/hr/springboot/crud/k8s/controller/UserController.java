@@ -4,6 +4,8 @@ import java.util.List;
 
 import javax.annotation.PostConstruct;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -17,12 +19,15 @@ import com.hr.springboot.crud.k8s.service.UserService;
 @RequestMapping("/users")
 public class UserController {
 
+	final Logger LOGGER = LoggerFactory.getLogger(UserController.class.getName());
+
 	@Autowired
 	private UserService userService;
 	
 	@PostConstruct
 	public void addUsers()
 	{
+		LOGGER.info("I am executed !!!");
 		User user = new User(1, "Himanshu", "puri");
 		userService.addUser(user);
 		user = new User(2, "Amit", "bbsr");
