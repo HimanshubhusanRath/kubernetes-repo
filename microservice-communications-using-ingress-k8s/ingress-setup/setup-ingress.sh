@@ -39,6 +39,6 @@ kubectl apply -f deployment.yaml
 ################## ISSUE FIX #################
 ##############################################
 
-# Not sure why this is required but this is needed
+# Not sure why this is required but this needs to be executed
 kubectl delete -A ValidatingWebhookConfiguration ingress-nginx-admission
 
