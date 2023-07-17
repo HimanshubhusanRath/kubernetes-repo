@@ -20,6 +20,8 @@ Start the application
 
 Access the services
 ---------------------
+* The Ingress object should be defined in the application namespace (dev) as this is related to the application path mappings. 
+  * NOTE: If we define this object outside of this namespace, the application services are not accessible by Ingress.  
 * The domain name is mentioned as **city-details.com** in the ingress file (ingress-pathbased-k8s.yml)
 * Now we need to find the external IP for this domain by using 'kubectl get ingress -n **dev** '. Here 'dev' is the application namespace.
 <img width="757" alt="Screenshot 2022-07-29 at 12 06 27 PM" src="https://user-images.githubusercontent.com/40859584/181698108-bd496e73-96f1-41bd-a5b9-9d10330da61c.png">
