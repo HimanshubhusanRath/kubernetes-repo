@@ -1,16 +1,19 @@
-Ingress Setup in Kubernetes(Minikube)
+Ingress Setup in Kubernetes(Minikube) - Manual
 --------------------------------------------
 * Check the '/ingress-setup/setup-ingress.sh'.
 * Here we do the below things.
   * Create new namespace for ingress (ingress-nginx)
   * Define the roles, services and deployments for ingress controller.
 
-
+* CHECK: The above steps may not be needed as we will simply enable 'ingress' in minikube using the command:
+  * minikube addons enable ingress
+  * This is mentioned in the 'app-process.sh' file.
+  
 Start the application
 -----------------------
 * Check the 'app-process.sh' file which contains the below steps.
   * Build the department-service and user-service application, create docker images and push to the docker-hub.
-  * Use '/ingress-setup/setup-ingress.sh' file to setup ingress.
+  * Enable ingress in minikube.
   * Create a new namespace as 'dev' for these two application(services).
   * Create service and deployment objects for department-service.
   * Create service and deployment objects for user-service.
