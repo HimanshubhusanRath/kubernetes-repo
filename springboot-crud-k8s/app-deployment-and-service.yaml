@@ -15,7 +15,8 @@ spec:
     spec:
       containers:
         - name: springboot-crud-k8s
-          image: himanshubhusan88/springboot-crud-k8s:1.0
+          image: himanshubhusan88/springboot-crud-k8s:3.0
+          imagePullPolicy: Always
           ports:
             - containerPort: 8080
           env:   # Setting Enviornmental Variables
@@ -36,7 +37,7 @@ spec:
               valueFrom:
                 secretKeyRef:
                   name: db-secrets 
-                  key: username 
+                  key: username
 
 
             - name: DB_PASSWORD # Setting Database password from Secret
@@ -60,6 +61,7 @@ spec:
   ports:
     - protocol: "TCP"
       port: 8080 # The port that the service is running on in the cluster
-      targetPort: 8080 # The port exposed by the service
+      targetPort: 8080 # The port on which the container is running in the POD
+      nodePort: 31103 # The port which is exposed on the node
   type: NodePort # type of the service.
   

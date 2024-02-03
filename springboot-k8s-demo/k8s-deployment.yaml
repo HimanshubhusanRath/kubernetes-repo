@@ -24,4 +24,4 @@ spec:
           image: himanshubhusan88/springboot-k8s-demo:1.0
           imagePullPolicy: Always
           ports:
-            - containerPort: 8081 # Port exposed by the pod
+            - containerPort: 8081 # Port which the container is running in the POD

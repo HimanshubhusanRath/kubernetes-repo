@@ -9,12 +9,14 @@ docker push himanshubhusan88/user-service:1.0
 
 ##### SETUP INGRESS ######
 
-cd ingress-setup
+## THIS MANUAL SET-UP MAY NOT BE REQUIRED AS WE CAN SIMPLY ENABLE INGRESS IN MINIKUBE
+## SO, WITH THIS, WE MAY NOT NEED THE /ingress-setup/* FILES
 
+# cd ingress-setup
 # Setup ingress(nginx)
-./setup-ingress.sh
-
-cd ..
+# ./setup-ingress.sh
+# cd ..
+minikube addons enable ingress
 
 # Delete the existing namespace
 kubectl delete ns dev
