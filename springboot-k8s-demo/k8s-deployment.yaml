@@ -8,20 +8,20 @@ metadata:
 spec:
   selector:
     matchLabels: 
-      app: springboot-k8s-demo
-      
-# NOTE: Selector and Label names should be same
+      app: springboot-k8s-app
+
+      # NOTE: Selector->MatchLabels and MetaData->Label value should be same as Spec->Selector defined in Service definition
       
   replicas: 3 # Number of replicas which will be created for this deployment
   template: 
     metadata:
       labels:
-        app: springboot-k8s-demo
+        app: springboot-k8s-app
     
     spec:
       containers:
         - name: springboot-k8s-demo
           image: himanshubhusan88/springboot-k8s-demo:1.0
-          imagePullPolicy: IfNotPresent
+          imagePullPolicy: Always
           ports:
-            - containerPort: 8080 # Port which the container is running in the cluster
+            - containerPort: 8081 # Port exposed by the pod
