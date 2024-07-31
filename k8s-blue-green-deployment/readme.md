@@ -1,8 +1,8 @@
 *Blue-Green deployment in Kubernetes*
 --------------------------------------
 * There are two deployments defined:
-  * green deployment - 2 pods with label as 'version: green'
-  * blue deployment - 2 pods with label as 'version: blue'
+  * blue deployment - 2 pods with label as 'version: blue'   [CURRENT / OLD VERSION]
+  * green deployment - 2 pods with label as 'version: green'  [NEW VERSION]
 * Service is defined with label selector as 'version: blue' so that only the BLUE pods are used by the service.
 * We can check this by accessing the callee-service's end point: '/msg'. It prints the below:
   - "From : callee-deploy-blue-5fc57db9b4-xwfc5-1231691412"
