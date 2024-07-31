@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: callee-deploy-blue
+  
+spec:
+  selector:
+    matchLabels:
+      app: callee-app
+      version: blue
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: callee-app
+        version: blue
+    spec:
+      containers:
+        - name: callee-service
+          image: himanshubhusan88/callee-service:1.0
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8080
