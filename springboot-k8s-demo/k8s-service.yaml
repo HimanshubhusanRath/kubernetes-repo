@@ -7,14 +7,14 @@ metadata:
   
 spec:
   selector:
-    app: springboot-k8s-demo # Should be same as Label mentioned in 'deployment' yaml
+    app: springboot-k8s-app # Should be same as Label mentioned in 'deployment' yaml
       
   ports:
     - protocol: "TCP"
-      port: 31191 # Port on which the service is running in the cluster
-      targetPort: 8080 # Port on which container in running in the POD
+      port: 8080 # Port on which the service is running in the cluster
+      targetPort: 8081 # Port on which container in running in the POD
       nodePort: 31102 # Port on the Node which listens to the request for this service
-      
+
   type: NodePort # Type of the service. 'NodePort' means we can access the service by using the node IP and port
   
  
