@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: callee-deploy-canary
+  
+spec:
+  selector:
+    matchLabels:
+      app: callee-app
+      version: canary
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: callee-app
+        version: canary
+    spec:
+      containers:
+        - name: callee-service
+          image: himanshubhusan88/callee-service:1.0
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8080
